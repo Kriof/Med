@@ -1,0 +1,12 @@
+﻿@model Mediporta_Services.Models.DTO.TagResultDTO
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="tagView" ng-controller="TagCtrl as $ctrl" ng-cloak ng-init="onInit()">
+    <div class="row">
+        <h4>1000 most popular tags we can spot in Stack Overflow</h4>
+        <div ui-grid="gridOptions" ui-grid-pagination class="myGrid"></div>
+    </div>
+</div>

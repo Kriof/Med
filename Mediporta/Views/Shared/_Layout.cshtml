@@ -6,9 +6,23 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+ 
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.7.0/angular.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/4.6.6/ui-grid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/4.6.6/ui-grid.core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/4.6.6/ui-grid.pagination.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/4.6.6/ui-grid.min.css" />
+
+    <link href="~/Scripts/Custom/Css/Global.css" rel="stylesheet" />
+    <script src="~/Scripts/Custom/Angular/Global.js"></script>
+ 
+ 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -26,16 +40,16 @@
                 </ul>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
+    </div>*@
+    <div ng-app="app" class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Krzysztof Abram</p>
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
+   
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

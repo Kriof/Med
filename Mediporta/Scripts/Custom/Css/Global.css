@@ -1,0 +1,39 @@
+﻿#tagView .myGrid {
+    min-height: 500px;
+    overflow-x: hidden;
+}
+
+#tagView h4 {
+    margin-bottom: 20px;
+}
+
+#tagView h4, #tagView .ui-grid-cell-contents {
+    text-align: center;
+    left: 12px;
+}
+
+#tagView .ui-grid-viewport.ng-isolate-scope {
+    overflow: -webkit-paged-y;
+}
+
+.ui-grid-column-menu-button .ui-grid-icon-angle-down {
+    position: relative;
+    top: 2px;
+    right: 7px;
+    position: relative;
+}
+
+.ui-grid-header-cell-label {
+    position: relative;
+    left: 12px;
+}
+
+    .ui-grid-header-cell-label ~ span {
+        position: relative;
+        
+        left: 12px;
+    }
+
+footer {
+    text-align: right;
+}
