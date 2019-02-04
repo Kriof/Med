@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
-using Mediporta.Models;
-using RestServices.Models;
+﻿using AutoMapper;
+using Mediporta_Services.Models;
 using RestServices.Models.DTO;
 
 namespace RestServices.App_Start.AutoMapper

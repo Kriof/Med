@@ -1,23 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Mediporta_Services.Models.DTO;
+using System.Configuration;
+using RestServices.Models.DTO;
 using RestSharp;
 
 namespace Mediporta.Controllers.Service
 {
     public static class GetDataFromTagService
     {
-        public static TagResultDTO GetTags(int pageNumber, int pageSize, string order = "desc")
+        public static TagResultDTO GetTags(int pageNumber, int pageSize)
         {
-            var client = new RestClient("http://localhost/Mediporta_Services");
-            var request = new RestRequest("api/PopularTag/Get", Method.GET);
+            if (ConfigurationManager.AppSettings["RestServicesUrl"].Length == 0)
+            {
+                throw new NotImplementedException("Add key RestServicesUrl to config");
+            }
+
+            var restServicesUrl = ConfigurationManager.AppSettings["RestServicesUrl"];
+            var client = new RestClient(restServicesUrl);
+            var request = new RestRequest("api/PopularTag/GetTags", Method.GET);
 
             request.AddParameter("pageNumber", pageNumber);
             request.AddParameter("pageSize", pageSize);
-            request.AddParameter("order", order);
 
             var tags = client.Execute<TagResultDTO>(request).Data;
            

@@ -28,7 +28,7 @@ app.controller("TagCtrl",
 
                 gridApi.pagination.on.paginationChanged($scope, function (newPage, pageSize) {
                     paginationOptions.pageNumber = newPage;
-                    paginationOptions.pageSize = 10;
+                    paginationOptions.pageSize = pageSize;
                     $scope.getTagFromApi();
                 });
             }
@@ -40,8 +40,7 @@ app.controller("TagCtrl",
                 url: 'http://localhost/Mediporta_Services/api/PopularTag/GetTags',
                 params: {
                     pageNumber: paginationOptions.pageNumber,
-                    pageSize: paginationOptions.pageSize,
-                    order: paginationOptions.sort == null ? "desc" : paginationOptions.sort
+                    pageSize: paginationOptions.pageSize
                 }
             })
                 .then(function (data, status) {

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Mediporta_Services.Models
+﻿namespace RestServices.Models
 {
     public class Item
     {
@@ -14,5 +8,6 @@ namespace Mediporta_Services.Models
         public bool Is_required { get; set; }
         public int Count { get; set; }
         public string Name { get; set; }
+        public string Percentage { get; set; }
     }
 }

@@ -1,10 +1,8 @@
 ﻿using System.Web.Http;
 using System.Web.Http.Controllers;
-using System.Web.Mvc;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using Castle.Windsor.Installer;
-using RestServices.Controllers;
 using RestServices.Models.Interfaces;
 using RestServices.Services;
 

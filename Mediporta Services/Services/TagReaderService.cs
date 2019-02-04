@@ -1,9 +1,7 @@
-﻿using System.IO;
-using System.Net;
-using System.Text;
-using AutoMapper;
-using Newtonsoft.Json;
-using RestServices.Models;
+﻿using System;
+using System.Configuration;
+using System.Linq;
+using Mediporta_Services.Models;
 using RestServices.Models.DTO;
 using RestServices.Models.Interfaces;
 using RestSharp;
@@ -11,42 +9,34 @@ namespace RestServices.Services
 {
     public class TagReaderService : ITagReaderService
     {
-        public TagResultDTO GetTag()
+        public TagResultDTO GetTag(int pageNumber, int pageSize)
         {
-            string stackOverFlowTagUrl = "https://api.stackexchange.com/2.2/tags?order=desc&sort=popular&site=stackoverflow";
-            string jsonData = string.Empty;
-
-            HttpWebRequest hwr = (HttpWebRequest)WebRequest.Create(stackOverFlowTagUrl);
-            hwr.AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip;
-            hwr.ContentType = "application/json; charset=utf-8";
-            HttpWebResponse response = hwr.GetResponse() as HttpWebResponse;
-
-            using (Stream responseStream = response.GetResponseStream())
+            if (ConfigurationManager.AppSettings["StackOverflowUrl"].Length == 0)
             {
-                StreamReader reader = new StreamReader(responseStream, Encoding.UTF8);
-                jsonData = reader.ReadToEnd();
+                throw new NotImplementedException("Add key StackOverflowUrl to config");
             }
-
-            var popularTag = JsonConvert.DeserializeObject<TagResult>(jsonData);
-            var popularTagDTO = Mapper.Map<TagResult, TagResultDTO>(popularTag);
-            return popularTagDTO;
-        }
-
-        public TagResultDTO GetTag(int pageNumber, int pageSize, string order = "desc")
-        {
-            var stackOverflowDomainUrl = "https://api.stackexchange.com";
+            
+            var stackOverflowDomainUrl = ConfigurationManager.AppSettings["StackOverflowUrl"];
 
             var client = new RestClient(stackOverflowDomainUrl);
             
             var request = new RestRequest("2.2/tags?", Method.GET);
-            request.AddParameter("page", pageNumber); // adds to POST or URL querystring based on Method
-            request.AddParameter("pageSize", pageSize); // adds to POST or URL querystring based on Method
-            request.AddParameter("order", order); // adds to POST or URL querystring based on Method
-            request.AddParameter("sort", "popular"); // adds to POST or URL querystring based on Method
-            request.AddParameter("site", "stackoverflow"); // adds to POST or URL querystring based on Method
+            request.AddParameter("page", pageNumber); 
+            request.AddParameter("pageSize", pageSize); 
+            request.AddParameter("order", "desc"); 
+            request.AddParameter("sort", "popular"); 
+            request.AddParameter("site", "stackoverflow"); 
 
-            var tags = client.Execute<TagResultDTO>(request).Data;
-            return tags;
+            var tags = client.Execute<TagResult>(request).Data;
+            var total = tags.Items.Sum(x => x.Count);
+            foreach (var item in tags.Items)
+            {
+                item.Percentage = ((double)item.Count / total).ToString("0.00%");
+            }
+
+            var tagDTO = AutoMapper.Mapper.Map<TagResult, TagResultDTO>(tags);
+            
+            return tagDTO;
         }
     }
 }

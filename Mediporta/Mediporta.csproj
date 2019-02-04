@@ -1008,9 +1008,9 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mediporta Services\MediportaServices.csproj">
+    <ProjectReference Include="..\Mediporta Services\RestServices.csproj">
       <Project>{d0f254f9-97c6-44a5-9431-0d0a6c0b28c8}</Project>
-      <Name>MediportaServices</Name>
+      <Name>RestServices</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

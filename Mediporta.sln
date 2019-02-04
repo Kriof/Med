@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mediporta", "Mediporta\Mediporta.csproj", "{BFEFBD4D-CDC6-4276-8298-D8FF6958F6D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediportaServices", "Mediporta Services\MediportaServices.csproj", "{D0F254F9-97C6-44A5-9431-0D0A6C0B28C8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestServices", "Mediporta Services\RestServices.csproj", "{D0F254F9-97C6-44A5-9431-0D0A6C0B28C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
