@@ -1,0 +1,110 @@
+﻿@import "variables";
+@import "mixins";
+body {
+    background-color: @backgroundColor;
+    box-shadow:none;
+    outline: none;
+    padding:0px;
+
+}
+h1,h2,h3,h4,h5,h6 {
+    font-size: 'regular';
+}
+.customNav {
+    display: flex;
+    position: fixed;
+    width: @containerWidth/5;
+
+    ul {
+        position: relative;
+        padding: 0px;
+        list-style: none;
+        width: 100%;
+
+        li {
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 18px;
+
+            &:hover {
+                background-color: rgba(236, 219, 254, 0.8);
+                .rounded-corners-all(15px);
+            }
+        }
+    }
+}
+.top {
+    background-image: url("../../../Content/img/bubbles.jpg");
+    background-size: cover;
+    background-position: 0 75%;
+    background-repeat: no-repeat;
+    min-height: 500px;
+    height:100%;
+}
+.container {
+    max-width: @containerWidth;
+    margin-left: @containerWidth/5;
+    margin-right: @containerWidth/5;
+    background-color: @grid;
+    font-family: 'regular' !important;
+
+    .rounded-corners-all(15px);
+
+    .ui-grid-header-cell {
+        background-color: @gridElements;
+        box-shadow: none;
+        border: none;
+
+        * {
+            box-shadow: none;
+        }
+    }
+
+    .ui-grid-pager-control {
+        button {
+            .rounded-corners-all(15px);
+        }
+    }
+}
+#tagView .myGrid {
+    min-height: 500px;
+    overflow-x: hidden;
+}
+
+#tagView h4 {
+    margin-bottom: 20px;
+}
+
+#tagView h4, #tagView .ui-grid-cell-contents {
+    text-align: center;
+    left: 12px;
+}
+
+#tagView .ui-grid-viewport.ng-isolate-scope {
+    overflow: -webkit-paged-y;
+}
+
+.ui-grid-column-menu-button .ui-grid-icon-angle-down {
+    position: relative;
+    top: 2px;
+    right: 7px;
+    position: relative;
+}
+
+.ui-grid-header-cell-label {
+    position: relative;
+    left: 12px;
+}
+.ui-grid-cell {
+    border: none;
+}
+
+.ui-grid-header-cell-label ~ span {
+    position: relative;
+    left: 12px;
+}
+
+footer {
+    text-align: right;
+}
