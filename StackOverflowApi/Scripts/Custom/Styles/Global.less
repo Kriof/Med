@@ -1,15 +1,33 @@
 ﻿@import "variables";
 @import "mixins";
+@import "keyframes";
 body {
     background-color: @backgroundColor;
-    box-shadow:none;
+    box-shadow: none;
     outline: none;
-    padding:0px;
+    padding: 0px;
+    color: gainsboro;
+    font-family: 'regular' !important;
 
+    h1, h2 {
+        text-align: center;
+        font-size: 40px;
+        word-spacing: 5px;
+    }
+
+    p {
+        font-size: 16px;
+        text-align: justify;
+        line-height: 27px;
+        word-spacing: 5px;
+        padding: 15px 150px 30px;
+    }
 }
-h1,h2,h3,h4,h5,h6 {
+
+h1, h2, h3, h4, h5, h6 {
     font-size: 'regular';
 }
+
 .customNav {
     display: flex;
     position: fixed;
@@ -25,7 +43,7 @@ h1,h2,h3,h4,h5,h6 {
             height: 40px;
             line-height: 40px;
             text-align: center;
-            font-size: 18px;
+            font-size: 25px;
 
             &:hover {
                 background-color: rgba(236, 219, 254, 0.8);
@@ -34,22 +52,85 @@ h1,h2,h3,h4,h5,h6 {
         }
     }
 }
+
+.animation-pop-in {
+    animation: pop-in 1s cubic-bezier(.66,1.75,.97,1.06) forwards;
+}
 .top {
     background-image: url("../../../Content/img/bubbles.jpg");
+    background-attachment: fixed;
     background-size: cover;
     background-position: 0 75%;
     background-repeat: no-repeat;
-    min-height: 500px;
-    height:100%;
+    min-height: 750px;
+    height: 100%;
+
+    h2 {
+        position:relative;
+        top: @topArrowDefaultPosition+ 30px;
+        right: 44%;
+        
+    }
+
+    span.fa-arrow-down {
+        font-size: 50px;
+        POSITION: relative;
+        top: @topArrowDefaultPosition;
+        right: 8px;
+        -webkit-animation: arrow 1s infinite;
+        animation: arrow 1s infinite;
+        animation-delay: 1s;
+        opacity:0;
+        cursor: pointer;
+        animation-timing-function: ease-out;
+    }
 }
+
+.img {
+    background-image: url("../../../Content/img/nature.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: 0 75%;
+    background-repeat: no-repeat;
+    min-height: 700px;
+    height: 50%;
+}
+
 .container {
     max-width: @containerWidth;
     margin-left: @containerWidth/5;
     margin-right: @containerWidth/5;
-    background-color: @grid;
+    background-color: @backgroundColor;
     font-family: 'regular' !important;
+    color: inherit;
 
-    .rounded-corners-all(15px);
+    h2 {
+        padding: 30px;
+    }
+
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-button {
+        background: @backgroundColor;
+    }
+
+    ::-webkit-scrollbar-track-piece {
+        background: @backgroundColor;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: rgb(220,220,220);
+    }
+
+    .myGrid {
+        padding: 30px 0px;
+        border: none;
+        color: @backgroundColor;
+        overflow-x: hidden;
+        .rounded-corners-all(15px);
+    }
 
     .ui-grid-header-cell {
         background-color: @gridElements;
@@ -59,14 +140,50 @@ h1,h2,h3,h4,h5,h6 {
         * {
             box-shadow: none;
         }
+
+        &:hover {
+            opacity: .6;
+        }
     }
+
+    .ui-grid-row {
+        &:hover {
+            opacity: .4;
+            color: rgb;
+            background-color: @backgroundColor;
+        }
+
+        &:nth-child(odd) .ui-grid-cell {
+            background-color: #EDCCFF;
+            border: none;
+        }
+
+        &:nth-child(even) .ui-grid-cell {
+            background-color: @backgroundColor;
+            color: gainsboro;
+        }
+    }
+
+
 
     .ui-grid-pager-control {
         button {
             .rounded-corners-all(15px);
         }
     }
+
+    .ui-grid-pager-max-pages-number, .ui-grid-pager-row-count-label, .ui-grid-pager-count-container {
+        color: gainsboro;
+    }
+
+    .ui-grid-pager-container {
+
+        button, select[ng-model="grid.options.paginationPageSize"] {
+            height: 30px;
+        }
+    }
 }
+
 #tagView .myGrid {
     min-height: 500px;
     overflow-x: hidden;
@@ -96,9 +213,6 @@ h1,h2,h3,h4,h5,h6 {
     position: relative;
     left: 12px;
 }
-.ui-grid-cell {
-    border: none;
-}
 
 .ui-grid-header-cell-label ~ span {
     position: relative;
@@ -106,5 +220,8 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 footer {
-    text-align: right;
+    p {
+        padding: 20px 15px;
+        text-align: right;
+    }
 }

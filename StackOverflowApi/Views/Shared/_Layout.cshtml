@@ -7,7 +7,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
- 
+
 
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.7.0/angular.js"></script>
 
@@ -17,41 +17,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/4.6.6/ui-grid.min.css" />
 
     <link href="~/Scripts/Custom/Styles/global.less" rel="stylesheet" />
-    <script src="~/Scripts/Custom/Angular/Global.js"></script>
- 
- 
+    <script src="~/Scripts/Custom/JS/Global.js"></script>
+    <script src="~/Scripts/Custom/JS/LandingPage.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+
+
 </head>
 <body >
-@*<div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </div>*@
+
 
     <div ng-app="app">
         @Html.Partial("../StackOverflow/Partial/Top")
-        <nav class="customNav">
-            <ul>
-                <li>Button 1</li>
-                <li>Button 2</li>
-                <li>Button 3</li>
-                <li>Button 4</li>
-            </ul>
-        </nav>
+        <div class="body-content textData">
+            <h1>
+                Stack Overflow 
+            </h1>
+            <p>
+                Stack Overflow is a question and answer site for professional and enthusiast programmers. It is a privately held website, the flagship site of the Stack Exchange Network, created in 2008 by Jeff Atwood and Joel Spolsky. It features questions and answers on a wide range of topics in computer programming. It was created to be a more open alternative to earlier question and answer sites such as Experts-Exchange. The name for the website was chosen by voting in April 2008 by readers of Coding Horror, Atwood's popular programming blog.
+            </p> 
+        </div>
+        <div class="col-sm-12 img">
+            
+        </div>
         <div class="container ">
             <div class="col-sm-12">
                 @*<div class="col-sm-3">

@@ -1,0 +1,39 @@
+﻿
+@-webkit-keyframes arrow {
+    0% {
+        top: @topArrowDefaultPosition;
+    }
+    50% {
+        top: @topArrowDefaultPosition + 25px;
+    }
+    100% {
+        top: @topArrowDefaultPosition;
+    }
+}
+@keyframes arrow {
+    0% {
+        top: @topArrowDefaultPosition;
+        opacity:1;
+    }
+
+    50% {
+        top: @topArrowDefaultPosition + 25px;
+        opacity: 1;
+    }
+
+    100% {
+        top: @topArrowDefaultPosition;
+        opacity: 1;
+    }
+}
+@keyframes pop-in {
+    0% {
+       opacity: 0;
+       transform: translateY(2rem) scale(.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
